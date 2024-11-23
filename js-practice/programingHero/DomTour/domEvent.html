@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+</head>
+
+<body>
+    <h1>Dom event</h1>
+    <button>Click Me</button>
+    <button id="make-pink">Make Pink</button>
+    <button id="make-green">Make Green</button>
+    <button id="make-goldenrod">Make GoldenRod</button>
+
+
+
+    <h1>Final DOM Event</h1>
+    <h3 id="handle-status">Default Text</h3>
+    <button onclick="handleOnClick()">handel Event function</button>
+    <button id="event-listenet">Handel Event Listener</button> <br> <br>
+
+    <p id="input-text">Input text</p>
+    <input id="input-field" type="text">
+    <button id="btn-update">Update</button> <br><br>
+
+
+    <h1>Add Comment</h1>
+    <div id="comment-container">
+        <p>lorem 30 Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quisquam, eveniet?</p>
+        <p>lorem 30 Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quisquam, eveniet?</p>
+        <p>lorem 30 Lorem ipsum dolor sit amet consectetur, adipisicing elit. Quisquam, eveniet?</p>
+    </div>
+    <div>
+        <textarea name="" id="new-comment" cols="60" rows="5"></textarea> <br>
+        <button id="btn-post">POST</button>
+    </div>
+
+    <div>
+        <h1>Explore more Events</h1>
+        <button id="btn-more">Events</button>
+    </div>
+
+
+    <script>
+        document.getElementById('btn-more'),addEventListener('click', function(){
+            console.log('sdafasdf')
+        });
+    </script>
+    <script src="./domEvent.js"></script>
+    <!-- <script>
+        function handleOnClick(){
+            const handleStatus = document.getElementById('handle-status');
+            handleStatus.innerText = 'Function by Event'
+        }
+
+        document.getElementById('event-listenet').addEventListener('click',function(){
+            const handleStatus = document.getElementById('handle-status');
+            handleStatus.innerText = 'Listener by Event'
+        })
+
+        document.getElementById('btn-update').addEventListener('click', function(){
+            const inputField = document.getElementById('input-field');
+            const inputText = inputField.value;
+
+            const p = document.getElementById('input-text');
+            p.innerText = inputText;
+            inputField.value = '';
+
+        })
+    </script> -->
+    <!-- <script>
+        document.getElementById('btn-post').addEventListener('click', function(){
+            const commentBox = document.getElementById('new-comment');
+            const newComment = commentBox.value;
+
+            const commentContainer = document.getElementById('comment-container');
+            const p = document.createElement('p');
+            p.innerText = newComment;
+            commentContainer.appendChild(p);
+
+            commentBox.value = '';
+        })
+    </script> -->
+</body>
+
+</html>
