@@ -15,11 +15,23 @@ const sales = [
 
 
 const totalsalesByCategory = sales.reduce((table, sale) => {
+    console.log(table, sale)
     const { category, price, quantity } = sale;
-    table[category] = {
-        totalRevenue: 0,
-        itemCount: 0
-    };
+
+    if(!table[category]){ 
+        table[category] = {
+            totalRevenue: 0,
+            itemCount: 0
+        }
+    }
+
+    table[category].totalRevenue += price * quantity;
+    table[category].itemCount += quantity;
+
+
+
+
+
     return table;
 }, {})
 
