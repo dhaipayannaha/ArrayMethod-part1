@@ -1,4 +1,4 @@
-const users = [
+ const users = [
     { id: 101, userId: "Alice", title: "admin" },
     { id: 102, userId: "Bob", title: "editor" },
     { id: 103, userId: "Charlie", title: "viewer" }
@@ -13,23 +13,8 @@ const posts = [
 ];
 
 
+
 const postByUserId = posts.reduce((table, post) => {
-    const {userId} = post;
-    if(!table[userId]){
-        table[userId] = [];
-    }
-    table[userId].push(post);
-    return table;
-}, {});
-
-
-console.log(postByUserId);
-
-const userWithPost = users.map((user) => {
-    return {
-        ...user,
-        posts: postByUserId[user.id] || []
-    }
-})
-
-console.log(userWithPost);
+    console.log(table, post)
+    return table
+}, {})
