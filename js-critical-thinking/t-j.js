@@ -1,0 +1,43 @@
+
+
+
+
+const events = [
+  { timestamp: "2025-10-22T10:01:00Z", type: "click" },
+  { timestamp: "2025-10-22T10:05:00Z", type: "scroll" },
+  { timestamp: "2025-10-22T10:14:00Z", type: "click" },
+  { timestamp: "2025-10-22T10:31:00Z", type: "click" },
+  { timestamp: "2025-10-22T10:45:00Z", type: "scroll" },
+  { timestamp: "2025-10-22T11:02:00Z", type: "click" },
+];
+
+const INTERVAL = 30 * 60 * 1000  // 30 minite in ms
+
+// 1S = 1000ms
+// 1M = 60000ms
+// 1H = 3600000ms
+// 1D = 86400000ms
+// 1W = 604800000ms
+// 1Y = 31536000000ms
+
+const  getBinningTimeStamp = (timestamp) => {
+    const date = new Date(timestamp);
+    const flooredDate = Math.floor(date.getTime() / INTERVAL) * INTERVAL;
+
+    return new Date(flooredDate).toISOString();
+}
+
+const binninedData = events.reduce((acc, event) => {
+    const bin = getBinningTimeStamp(event.timestamp);
+
+    if(!acc[bin]) {
+        acc[bin] = {total: 0, events: []}
+    }
+
+    acc[bin].total = acc[bin].total + 1;
+    acc[bin].events.push(event);
+
+    return acc;
+}, {})
+
+console.log(binninedData);
