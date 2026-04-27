@@ -15,6 +15,21 @@ const posts = [
 
 
 const postByUserId = posts.reduce((table, post) => {
-    console.log(table, post)
+    const {userId} = post;
+
+    if(!table[userId]){
+        table[userId] = []
+    }
+
+    table[userId].push(post);
     return table
 }, {})
+
+const userWithPost = users.map((user) => {
+    return {
+        ...user,
+        posts: postByUserId[user.id] || []
+    }
+})
+
+console.log(userWithPost)
